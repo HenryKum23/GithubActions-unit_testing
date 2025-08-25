@@ -1,0 +1,41 @@
+name: Unit Testing
+
+on:
+  push:
+    branches: [main, dev, test]
+
+    paths-ignore: 
+      - .github/workflows/ci.yml
+      - .github/workflows/codeql.yml
+      - .github/workflows/legacy.yml
+      - .github/workflows/scorecard.yml
+
+  workflow_dispatch:
+  
+jobs:
+    unit_testing:
+      name: Unit Testing
+      runs-on: ubuntu-latest
+
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
+
+        - name: Setup NodeJs Version
+          uses: actions/setup-node@v3
+          with:
+            node-version: 20
+        
+        - name: install dependencies
+          run: npm install
+
+        - name: Unit testing
+          run: npm test
+        
+        - name: Archive test result
+          uses: actions/upload-artifact@v3
+          with:
+            name: Mocha-test-result
+            path: test-results.xml
+        
+        
