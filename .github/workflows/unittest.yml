@@ -15,9 +15,9 @@ on:
 jobs:
     unit_testing:
       name: Unit Testing
-      concurrency:
-        group: production-deployment
-        cancel-in-progress: true
+      # concurrency:
+      #   group: production-deployment
+      #   cancel-in-progress: true
       strategy:
         fail-fast: false
         matrix:
