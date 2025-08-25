@@ -41,7 +41,7 @@ jobs:
           run: npm install --save-dev mocha-junit-reporter
 
         - name: Run Mocha tests
-          run: npx mocha --reporter mocha-junit-reporter --reporter-options mochaFile=test-results.xml
+          run: npx mocha --reporter mocha-junit-reporter --reporter-options mochaFile=test-results1.xml
 
         - name: Check if test-results.xml exists
           run: ls -l test-results.xml
