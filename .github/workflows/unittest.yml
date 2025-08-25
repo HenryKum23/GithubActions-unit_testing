@@ -28,10 +28,10 @@ jobs:
         - name: Checkout code
           uses: actions/checkout@v4
 
-        - name: Setup NodeJs Version - ${{ matrix.nodejs_version}}
+        - name: Setup NodeJs Version - ${{ matrix.nodejs_version }}
           uses: actions/setup-node@v3
           with:
-            node-version: ${{ martix.nodejs_version}}
+            node-version: ${{ martix.nodejs_version }}
         
         - name: install dependencies
           run: npm install
