@@ -2,15 +2,23 @@ name: ci
 
 on:
   push:
-    branches:
-      - master
-      - develop
-      - '4.x'
-      - '5.x'
-      - '5.0'
+    branches: [main, dev, test, feature]
     paths-ignore:
+      - .github/workflows/unittest.yml
+      - .github/workflows/codeql.yml
+      - .github/workflows/legacy.yml
+      - .github/workflows/scorecard.yml
       - '*.md'
+
   pull_request:
+    branches: [main, dev, test, feature]
+    paths-ignore:
+      - .github/workflows/unittest.yml
+      - .github/workflows/codeql.yml
+      - .github/workflows/legacy.yml
+      - .github/workflows/scorecard.yml
+      - '*.md'
+
   workflow_dispatch:
 
 permissions:
