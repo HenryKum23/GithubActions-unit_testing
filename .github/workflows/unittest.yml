@@ -15,6 +15,9 @@ on:
 jobs:
     unit_testing:
       name: Unit Testing
+      concurrency:
+        group: production-deployment
+        cancel-in-progress: true
       strategy:
         fail-fast: false
         matrix:
@@ -44,7 +47,7 @@ jobs:
           run: npx mocha --reporter mocha-junit-reporter --reporter-options mochaFile=test-results1.xml
 
         - name: Check if test-results.xml exists
-          run: ls -l test-results.xml
+          run: ls -l test-results1.xml
 
         - name: Archive test result
           uses: actions/upload-artifact@v4
