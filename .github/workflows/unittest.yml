@@ -29,9 +29,12 @@ jobs:
         - name: install dependencies
           run: npm install
 
-        - name: Unit testing
-          run: npm test
-        
+        - name: Run Mocha tests
+          run: npx mocha --reporter mocha-junit-reporter --reporter-options mochaFile=test-results.xml
+
+        - name: Check if test-results.xml exists
+          run: ls -l test-results.xml
+
         - name: Archive test result
           uses: actions/upload-artifact@v4
           with:
