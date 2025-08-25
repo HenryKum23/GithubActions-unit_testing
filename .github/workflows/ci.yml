@@ -95,7 +95,7 @@ jobs:
           retention-days: 1
 
   coverage:
-    needs: test
+    needs: [lint,test]
     runs-on: ubuntu-latest
     permissions:
       contents: read
